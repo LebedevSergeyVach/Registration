@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.os.Bundle;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REGISTRATION_REQUEST_CODE = 1;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             result = findViewById(R.id.answer);
 
             if (login.equals(LOGIN) && password.equals(PASSWORD)) {
-                right = getString(R.string.right);
+                String right = getString(R.string.right);
                 result.setText(right);
                 result.setTextColor(Color.GREEN);
 
