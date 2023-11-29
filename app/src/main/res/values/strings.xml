@@ -7,6 +7,8 @@
     <string name="answer_entrance">Войдите в аккаунт</string>
 
     <string name="registration">Регистрация</string>
+    <string name="register">Зарегистрироваться</string>
+
     <string name="error_login">Вы ошиблись в логине или пароле</string>
     <string name="right">Верно</string>
 

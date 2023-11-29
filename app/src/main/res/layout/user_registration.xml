@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserRegistration"
-    android:background="@drawable/backgraundblack">
+    android:background="@drawable/blackbackgraund">
 
     <LinearLayout
         android:layout_width="294dp"
@@ -57,8 +57,8 @@
             android:autofillHints="" />
 
         <Button
-            android:id="@+id/loginButton"
-            android:text="@string/entrance"
+            android:id="@+id/registrationButton"
+            android:text="@string/register"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:backgroundTint="@color/blue"
