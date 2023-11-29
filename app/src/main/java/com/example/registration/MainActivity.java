@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             result = findViewById(R.id.answer);
 
             if (login.equals(LOGIN) && password.equals(PASSWORD)) {
-                String right = getString(R.string.right);
+                right = getString(R.string.right);
                 result.setText(right);
                 result.setTextColor(Color.GREEN);
 

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="294dp"
-        android:layout_height="324dp"
+        android:layout_height="380dp"
         android:orientation="vertical"
 
         android:background="@drawable/rounded_corner"
@@ -22,7 +22,6 @@
 
 
         <TextView
-            android:id="@+id/answer"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="@string/registration"
@@ -64,6 +63,16 @@
             android:backgroundTint="@color/blue"
             android:translationX="20dp"
             android:translationY="80dp"/>
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:id="@+id/answer"
+            android:hint="@string/answer_registration"
+            android:textAlignment="center"
+            android:translationX="20dp"
+            android:translationY="100dp"
+            android:textSize="18sp"/>
 
 
     </LinearLayout>

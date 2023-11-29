@@ -4,10 +4,12 @@
     <string name="login">Введите логин</string>
     <string name="password">Введите пароль</string>
     <string name="entrance">Войти</string>
+    <string name="heading_entrance">Вход</string>
     <string name="answer_entrance">Войдите в аккаунт</string>
 
     <string name="registration">Регистрация</string>
     <string name="register">Зарегистрироваться</string>
+    <string name="answer_registration">Создайте аккаунт</string>
 
     <string name="error_login">Вы ошиблись в логине или пароле</string>
     <string name="right">Верно</string>

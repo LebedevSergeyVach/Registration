@@ -3,15 +3,23 @@ package com.example.registration;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class UserRegistration extends AppCompatActivity {
+    private final String EMPTY = "";
+    
+    private TextView result;
+    private String login_error;
+    private String right;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +33,27 @@ public class UserRegistration extends AppCompatActivity {
             String userLogin = ((EditText) findViewById(R.id.user_login)).getText().toString();
             String userPassword = ((EditText) findViewById(R.id.user_password)).getText().toString();
 
-            Intent resultIntent = new Intent(UserRegistration.this, MainActivity.class);
-            resultIntent.putExtra("login", userLogin);
-            resultIntent.putExtra("password", userPassword);
-            setResult(RESULT_OK, resultIntent);
-            finish();
+            result = findViewById(R.id.answer);
+
+            if (userLogin.equals(EMPTY) || userPassword.equals(EMPTY)) {
+                login_error = getString(R.string.error_login);
+                result.setText(login_error);
+                result.setTextColor(Color.RED);
+
+                ((EditText) findViewById(R.id.user_login)).setText("");
+                ((EditText) findViewById(R.id.user_password)).setText("");
+            } else {
+                right = getString(R.string.right);
+                result.setText(right);
+                result.setTextColor(Color.GREEN);
+
+                Intent resultIntent = new Intent(UserRegistration.this, MainActivity.class);
+                resultIntent.putExtra("login", userLogin);
+                resultIntent.putExtra("password", userPassword);
+
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
         });
     }
 }
