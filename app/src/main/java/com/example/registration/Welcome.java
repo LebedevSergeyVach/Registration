@@ -11,6 +11,6 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome State Services", Toast.LENGTH_SHORT).show();
     }
 }

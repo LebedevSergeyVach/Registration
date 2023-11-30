@@ -13,8 +13,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REGISTRATION_REQUEST_CODE = 1;
-    private String LOGIN = "admin";
-    private String PASSWORD = "password";
+    private final String LOGIN = "admin";
+    private final String PASSWORD = "password";
+
+    private String registeredLogin;
+    private String registeredPassword;
 
     private Button loginButton;
 
@@ -38,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
             result = findViewById(R.id.answer);
 
-            if (login.equals(LOGIN) && password.equals(PASSWORD)) {
+            if ( (login.equals(LOGIN) && password.equals(PASSWORD)) || (login.equals(registeredLogin) && password.equals(registeredPassword)) ) {
                 right = getString(R.string.right);
                 result.setText(right);
                 result.setTextColor(Color.GREEN);
 
                 startActivity(new Intent(MainActivity.this, Welcome.class));
             } else {
-                startRegistrationActivity();
+                startUserRegistrationActivity();
 
                 login_error = getString(R.string.error_login);
                 result.setText(login_error);
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void startRegistrationActivity() {
+    private void startUserRegistrationActivity() {
         Intent intent = new Intent(MainActivity.this, UserRegistration.class);
         startActivityForResult(intent, REGISTRATION_REQUEST_CODE);
     }
@@ -67,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REGISTRATION_REQUEST_CODE && resultCode == RESULT_OK) {
 
-            String registeredLogin = data.getStringExtra("login");
-            String registeredPassword = data.getStringExtra("login");
+            registeredLogin = data.getStringExtra("login");
+            registeredPassword = data.getStringExtra("password");
 
             ((EditText) findViewById(R.id.login)).setText(registeredLogin);
             ((EditText) findViewById(R.id.password)).setText(registeredPassword);

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UserRegistration"
-    android:background="@drawable/gradient_violet">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_blue">
 
     <LinearLayout
         android:layout_width="294dp"
@@ -20,11 +20,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:text="@string/registration"
+            android:text="@string/heading_entrance"
             android:textAlignment="center"
             android:textColor="#0000FF"
             android:textSize="36sp"
@@ -36,7 +35,7 @@
             android:layout_height="56dp"
             android:inputType="text"
             android:ems="10"
-            android:id="@+id/user_login"
+            android:id="@+id/login"
             android:hint="@string/login"
             android:textAlignment="center"
             android:translationX="20dp"
@@ -48,7 +47,7 @@
             android:layout_height="60dp"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/user_password"
+            android:id="@+id/password"
             android:hint="@string/password"
             android:textAlignment="center"
             android:translationX="20dp"
@@ -56,11 +55,11 @@
             android:autofillHints="" />
 
         <Button
-            android:id="@+id/registrationButton"
-            android:text="@string/register"
+            android:id="@+id/loginButton"
+            android:text="@string/entrance"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:backgroundTint="@color/violet"
+            android:backgroundTint="@android:color/system_accent3_1000"
             android:translationX="20dp"
             android:translationY="80dp"/>
 
@@ -68,13 +67,14 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:id="@+id/answer"
-            android:hint="@string/answer_registration"
+            android:hint="@string/answer_entrance"
             android:textAlignment="center"
             android:translationX="20dp"
             android:translationY="100dp"
             android:textSize="18sp"/>
 
-
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
