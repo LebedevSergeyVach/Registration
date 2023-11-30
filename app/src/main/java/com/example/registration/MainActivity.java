@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
     private static final int REGISTRATION_REQUEST_CODE = 1;
     private final String LOGIN = "admin";
@@ -41,28 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
             result = findViewById(R.id.answer);
 
-            if ( (login.equals(LOGIN) && password.equals(PASSWORD)) || (login.equals(registeredLogin) && password.equals(registeredPassword)) ) {
-                right = getString(R.string.right);
-                result.setText(right);
-                result.setTextColor(Color.GREEN);
-
-                startActivity(new Intent(MainActivity.this, Welcome.class));
+            if ((login.equals(LOGIN) && password.equals(PASSWORD)) || (login.equals(registeredLogin) && password.equals(registeredPassword))) {
+                startWelcomeActivity();
             } else {
                 startUserRegistrationActivity();
-
-                login_error = getString(R.string.error_login);
-                result.setText(login_error);
-                result.setTextColor(Color.RED);
-
-                ((EditText) findViewById(R.id.login)).setText("");
-                ((EditText) findViewById(R.id.password)).setText("");
             }
         });
-    }
-
-    private void startUserRegistrationActivity() {
-        Intent intent = new Intent(MainActivity.this, UserRegistration.class);
-        startActivityForResult(intent, REGISTRATION_REQUEST_CODE);
     }
 
     @Override
@@ -81,5 +66,25 @@ public class MainActivity extends AppCompatActivity {
             result.setText(right);
             result.setTextColor(Color.BLUE);
         }
+    }
+
+    private void startWelcomeActivity() {
+        right = getString(R.string.right);
+        result.setText(right);
+        result.setTextColor(Color.GREEN);
+
+        startActivity(new Intent(MainActivity.this, Welcome.class));
+    }
+
+    private void startUserRegistrationActivity() {
+        login_error = getString(R.string.error_login);
+        result.setText(login_error);
+        result.setTextColor(Color.RED);
+
+        ((EditText) findViewById(R.id.login)).setText("");
+        ((EditText) findViewById(R.id.password)).setText("");
+
+        Intent intent = new Intent(MainActivity.this, UserRegistration.class);
+        startActivityForResult(intent, REGISTRATION_REQUEST_CODE);
     }
 }

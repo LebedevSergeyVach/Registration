@@ -36,24 +36,35 @@ public class UserRegistration extends AppCompatActivity {
             result = findViewById(R.id.answer);
 
             if (userLogin.equals(EMPTY) || userPassword.equals(EMPTY)) {
-                login_error = getString(R.string.error_login);
-                result.setText(login_error);
-                result.setTextColor(Color.RED);
-
-                ((EditText) findViewById(R.id.user_login)).setText("");
-                ((EditText) findViewById(R.id.user_password)).setText("");
+                userRegisterError();
             } else {
-                right = getString(R.string.right);
-                result.setText(right);
-                result.setTextColor(Color.GREEN);
-
-                Intent resultIntent = new Intent(UserRegistration.this, MainActivity.class);
-                resultIntent.putExtra("login", userLogin);
-                resultIntent.putExtra("password", userPassword);
-
-                setResult(RESULT_OK, resultIntent);
-                finish();
+                starrMainActivity(userLogin, userPassword);
+                clearingFields();
             }
         });
+    }
+
+    private void userRegisterError() {
+        login_error = getString(R.string.error_login);
+        result.setText(login_error);
+        result.setTextColor(Color.RED);
+    }
+
+    private void starrMainActivity(String userLogin, String userPassword) {
+        right = getString(R.string.right);
+        result.setText(right);
+        result.setTextColor(Color.GREEN);
+
+        Intent resultIntent = new Intent(UserRegistration.this, MainActivity.class);
+        resultIntent.putExtra("login", userLogin);
+        resultIntent.putExtra("password", userPassword);
+
+        setResult(RESULT_OK, resultIntent);
+        finish();
+    }
+
+    protected void clearingFields() {
+        ((EditText) findViewById(R.id.user_login)).setText(EMPTY);
+        ((EditText) findViewById(R.id.user_password)).setText(EMPTY);
     }
 }
