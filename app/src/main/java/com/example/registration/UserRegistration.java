@@ -17,8 +17,6 @@ public class UserRegistration extends AppCompatActivity {
     private final String EMPTY = "";
     
     private TextView result;
-    private String login_error;
-    private String right;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,13 +43,13 @@ public class UserRegistration extends AppCompatActivity {
     }
 
     private void userRegisterError() {
-        login_error = getString(R.string.error_login);
-        result.setText(login_error);
+        String loginError = getString(R.string.error_login);
+        result.setText(loginError);
         result.setTextColor(Color.RED);
     }
 
     private void starrMainActivity(String userLogin, String userPassword) {
-        right = getString(R.string.right);
+        String right = getString(R.string.right);
         result.setText(right);
         result.setTextColor(Color.GREEN);
 
