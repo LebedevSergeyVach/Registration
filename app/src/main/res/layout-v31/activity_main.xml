@@ -59,7 +59,7 @@
             android:text="@string/entrance"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:backgroundTint="@android:color/system_accent3_1000"
+            android:backgroundTint="@color/blue"
             android:translationX="20dp"
             android:translationY="80dp"/>
 

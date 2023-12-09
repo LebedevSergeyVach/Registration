@@ -14,19 +14,16 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REGISTRATION_REQUEST_CODE = 1;
-    private final String LOGIN = "admin";
-    private final String PASSWORD = "password";
+    private final String LOGIN = String.valueOf(R.string.user_login);
+    private final String PASSWORD = String.valueOf(R.string.user_password);
 
     private String registeredLogin;
     private String registeredPassword;
-
-    private Button loginButton;
 
     private String login;
     private String password;
 
     private String right;
-    private String login_error;
     private TextView result;
 
     @Override
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loginButton = findViewById(R.id.loginButton);
+        Button loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(view -> {
             login = ((EditText) findViewById(R.id.login)).getText().toString();
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startUserRegistrationActivity() {
-        login_error = getString(R.string.error_login);
+        String login_error = getString(R.string.error_login);
         result.setText(login_error);
         result.setTextColor(Color.RED);
 
