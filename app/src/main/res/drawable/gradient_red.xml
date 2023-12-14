@@ -4,6 +4,6 @@
             android:type="linear"
             android:angle="@integer/material_motion_duration_long_1"
             android:startColor="@color/black"
-            android:centerColor="@color/blue"
+            android:centerColor="@color/red"
             android:endColor="@color/black" />
 </shape>

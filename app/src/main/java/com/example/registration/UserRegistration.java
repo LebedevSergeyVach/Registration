@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class UserRegistration extends AppCompatActivity {
-    private final String EMPTY = "";
+    private static final String TAG = "MyApp";
+    private final static String EMPTY = "";
     
     private TextView result;
 
@@ -36,8 +38,10 @@ public class UserRegistration extends AppCompatActivity {
             if (userLogin.equals(EMPTY) || userPassword.equals(EMPTY)) {
                 userRegisterError();
             } else {
-                starrMainActivity(userLogin, userPassword);
+                startMainActivity(userLogin, userPassword);
                 clearingFields();
+
+                Log.d(TAG, "### Switching to activity MainActivity with data retention UserRegistration ###");
             }
         });
     }
@@ -48,7 +52,7 @@ public class UserRegistration extends AppCompatActivity {
         result.setTextColor(Color.RED);
     }
 
-    private void starrMainActivity(String userLogin, String userPassword) {
+    private void startMainActivity(String userLogin, String userPassword) {
         String right = getString(R.string.right);
         result.setText(right);
         result.setTextColor(Color.GREEN);

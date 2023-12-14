@@ -1,14 +1,22 @@
 <resources>
+    <!--Main info application-->
     <string name="app_name">Registration</string>
 
+    <!--User registration and login-->
+
+    <!--
+        MainActivity.java UserRegistration.java
+        activity_main.xml user_registration.xml
+    -->
     <string name="user_login">admin</string>
     <string name="user_password">password</string>
-    
+
     <string name="login">Введите логин</string>
     <string name="password">Введите пароль</string>
     <string name="entrance">Войти</string>
     <string name="heading_entrance">Вход</string>
     <string name="answer_entrance">Войдите в аккаунт</string>
+    <string name="go_over">Перейти</string>
 
     <string name="registration">Регистрация</string>
     <string name="register">Зарегистрироваться</string>
@@ -16,4 +24,12 @@
 
     <string name="error_login">Вы ошиблись в логине или пароле</string>
     <string name="right">Верно</string>
+
+    <!--
+        Welcome.java
+        welcome.xml
+    -->
+    <string name="welcome_name">Добро пожаловать</string>
+    <string name="exit">Выйти</string>
+
 </resources>

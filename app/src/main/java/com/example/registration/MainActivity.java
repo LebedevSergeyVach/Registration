@@ -1,5 +1,6 @@
 package com.example.registration;
 
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,15 +14,12 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MyApp";
+
     private static final int REGISTRATION_REQUEST_CODE = 1;
-    private final String LOGIN = String.valueOf(R.string.user_login);
-    private final String PASSWORD = String.valueOf(R.string.user_password);
 
     private String registeredLogin;
     private String registeredPassword;
-
-    private String login;
-    private String password;
 
     private String right;
     private TextView result;
@@ -34,15 +32,20 @@ public class MainActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(view -> {
-            login = ((EditText) findViewById(R.id.login)).getText().toString();
-            password = ((EditText) findViewById(R.id.password)).getText().toString();
+            String login = ((EditText)findViewById(R.id.login)).getText().toString();
+            String password = ((EditText)findViewById(R.id.password)).getText().toString();
+
+            final String LOGIN = getString(R.string.user_login);
+            final String PASSWORD = getString(R.string.user_password);
 
             result = findViewById(R.id.answer);
 
             if ((login.equals(LOGIN) && password.equals(PASSWORD)) || (login.equals(registeredLogin) && password.equals(registeredPassword))) {
                 startWelcomeActivity();
+                Log.d(TAG, "### Switching to activity Welcome.java ###");
             } else {
                 startUserRegistrationActivity();
+                Log.d(TAG, "### Switching to activity UserRegistration.java ###");
             }
         });
     }
@@ -55,13 +58,15 @@ public class MainActivity extends AppCompatActivity {
             registeredLogin = data.getStringExtra("login");
             registeredPassword = data.getStringExtra("password");
 
-            ((EditText) findViewById(R.id.login)).setText(registeredLogin);
-            ((EditText) findViewById(R.id.password)).setText(registeredPassword);
+            ((EditText)findViewById(R.id.login)).setText(registeredLogin);
+            ((EditText)findViewById(R.id.password)).setText(registeredPassword);
 
             result = findViewById(R.id.answer);
             right = getString(R.string.answer_entrance);
             result.setText(right);
             result.setTextColor(Color.BLUE);
+
+            Log.d(TAG, "### Switching to activity MainActivity with data retention UserRegistration ###");
         }
     }
 
@@ -78,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         result.setText(login_error);
         result.setTextColor(Color.RED);
 
-        ((EditText) findViewById(R.id.login)).setText("");
-        ((EditText) findViewById(R.id.password)).setText("");
+        ((EditText)findViewById(R.id.login)).setText("");
+        ((EditText)findViewById(R.id.password)).setText("");
 
         Intent intent = new Intent(MainActivity.this, UserRegistration.class);
         startActivityForResult(intent, REGISTRATION_REQUEST_CODE);

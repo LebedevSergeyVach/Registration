@@ -1,36 +1,32 @@
-
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="#E0E0E0">
+    tools:context=".">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bold" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Italic" />
-
-    </LinearLayout>
+        android:text="name:" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#A0F0F0"
-        android:text="EditText"
-        android:gravity="center"
-    />
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/bt_save"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:onClick="cancel"/>
 
 </LinearLayout>
