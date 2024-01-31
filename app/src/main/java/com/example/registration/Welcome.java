@@ -18,10 +18,13 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        Button button = findViewById(R.id.logoutButton);
+        Button logautbutton = findViewById(R.id.logoutButton);
 
-        button.setOnClickListener(view -> {
-            startActivity(new Intent(Welcome.this, MainActivity.class));
+        logautbutton.setOnClickListener(view -> {
+            Intent intent = new Intent(Welcome.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
             Log.d(TAG, "### Switching to activity MainActivity.java ###");
         });
 

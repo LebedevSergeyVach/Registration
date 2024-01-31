@@ -37,10 +37,10 @@ public class UserRegistration extends AppCompatActivity {
 
             if (userLogin.equals(EMPTY) || userPassword.equals(EMPTY)) {
                 userRegisterError();
+                clearingFields(R.id.user_login, R.id.user_password);
             } else {
                 startMainActivity(userLogin, userPassword);
-                clearingFields();
-
+                clearingFields(R.id.user_login, R.id.user_password);
                 Log.d(TAG, "### Switching to activity MainActivity with data retention UserRegistration ###");
             }
         });
@@ -65,8 +65,8 @@ public class UserRegistration extends AppCompatActivity {
         finish();
     }
 
-    protected void clearingFields() {
-        ((EditText) findViewById(R.id.user_login)).setText(EMPTY);
-        ((EditText) findViewById(R.id.user_password)).setText(EMPTY);
+    protected void clearingFields(int login, int password) {
+        ((EditText)findViewById(login)).setText(EMPTY);
+        ((EditText)findViewById(password)).setText(EMPTY);
     }
 }
